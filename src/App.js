@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import Chat from "./components/chat/Chat";
+import LogoNavbar from "./components/navbar/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        position: "fixed",
+        width: "100vw",
+        height: "100vh",
+        top: 0,
+        left: 0,
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <LogoNavbar />
+      <Chat />
     </div>
   );
 }
