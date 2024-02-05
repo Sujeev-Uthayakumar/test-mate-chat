@@ -26,12 +26,12 @@ function Chat() {
           />
           <ConversationList className="conversation-list">
             <Conversation
-              name="Lilly"
-              lastSenderName="Lilly"
-              info="Yes I can do it for you!"
+              name="Lorem"
+              lastSenderName="Lorem"
+              info="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
               className="conversation"
             >
-             {/* <Avatar name="Lilly" /> */}
+              {/* <Avatar name="Lilly" /> */}
             </Conversation>
             {/* Add more conversations as needed */}
           </ConversationList>
@@ -42,8 +42,8 @@ function Chat() {
             <ConversationHeader.Back />
             {/* <Avatar name="Zoe" /> */}
             <ConversationHeader.Content
-              userName="Zoe"
-              info="Active 10 mins ago"
+              userName="Lorem ipsum"
+              info="Last asked 10 mins ago"
             />
             <ConversationHeader.Actions>
               <InfoButton />
@@ -56,11 +56,23 @@ function Chat() {
         </ChatContainer>
 
         <Sidebar position="right" className="sidebar">
-          <ExpansionPanel title="HELP" className="expansion-panel">
+          <ExpansionPanel
+            title="HELP"
+            className="expansion-panel"
+            style={{
+              backgroundColor: "#d5e8f6",
+            }}
+          >
             <p>Documentation or User Manuals</p>
             {/* Add more content as needed */}
           </ExpansionPanel>
-          <ExpansionPanel title="OPTIONS" className="expansion-panel">
+          <ExpansionPanel
+            title="OPTIONS"
+            className="expansion-panel"
+            style={{
+              backgroundColor: "#d5e8f6",
+            }}
+          >
             <p>Check for Updates</p>
             <p>Contact Customer Support</p>
             <p>Privacy Policy</p>

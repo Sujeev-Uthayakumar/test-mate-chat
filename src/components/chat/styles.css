@@ -14,7 +14,6 @@
 
 /* Search bar styling */
 .search-bar input {
-  background-color: #f6fbff;
   color: #000000;
   border: none;
   padding: 8px;
@@ -22,9 +21,9 @@
 }
 
 .custom-placeholder::placeholder {
-    color: #909090; /* Placeholder text color */
-    opacity: 1; /* Optional: Adjust the opacity of the placeholder text */
-  }
+  color: #909090; /* Placeholder text color */
+  opacity: 1; /* Optional: Adjust the opacity of the placeholder text */
+}
 
 /* Conversation list styling */
 .conversation-list {
@@ -38,7 +37,7 @@
 }
 
 .conversation:hover {
-  background-color: #e5e7ff;
+  background-color: #ffffff;
 }
 
 /* Chat container styling */
@@ -69,7 +68,7 @@
 
 /* Expansion panel styling */
 .expansion-panel {
-  background-color: #baddf8;
+  background-color: #d5e8f6;
   color: #ffffff;
   padding: 10px;
   margin-bottom: 10px;
@@ -77,6 +76,10 @@
 
 .expansion-panel p {
   color: #99aab5;
+}
+
+.expansion-panel:hover {
+  background-color: #ffffff;
 }
 
 /* Add any additional styles or modifications as needed */
