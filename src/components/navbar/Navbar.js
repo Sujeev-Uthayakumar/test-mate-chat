@@ -8,8 +8,7 @@ function LogoNavbar() {
     <div className="main-container">
       <Navbar className="bg-body-tertiary logo-navbar">
         <Container>
-          <Navbar.Brand href="#home" className="brand-navbar">
-            <ScienceIcon fontSize="large" />
+          <Navbar.Brand href="#home" className="brand-navbar title-text" style={{ fontSize: '37px' }}>
             Test Mate
           </Navbar.Brand>
         </Container>

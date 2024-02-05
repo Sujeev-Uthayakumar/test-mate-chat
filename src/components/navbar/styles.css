@@ -1,18 +1,24 @@
-.logo-navbar {
-  width: 50px;
-  height: 50px;
-  justify-content: "center";
-  background-color: #9eb4d4;
-  margin: 0px;
-  padding: 0px;
-}
-
-.brand-navbar {
-  padding-left: 40px;
-  margin: 0px;
-  color: #ffffff;
-}
+/* In your styles.css file */
+@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
 
 .main-container {
   background-color: #95add0;
 }
+
+.logo-navbar {
+  width: 0px;
+  height: 50px;
+  justify-content: center; /* Note: Remove the quotes around "center" */
+  background-color: #9eb4d4;
+  margin: 0;
+  padding: 0;
+}
+
+.brand-navbar {
+  padding-left: 40px;
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Honk', sans-serif; /* Use the 'Honk' font for the Test Mate text */
+}
+
+/* Add any additional styles as needed */

@@ -14,7 +14,7 @@
 
 /* Search bar styling */
 .search-bar input {
-  background-color: #d5e8f6;
+  background-color: #f6fbff;
   color: #000000;
   border: none;
   padding: 8px;
@@ -32,12 +32,13 @@
 }
 
 .conversation {
+  background-color: #d5e8f6;
   padding: 10px;
   border-bottom: 1px solid #9acbf7;
 }
 
 .conversation:hover {
-  background-color: #d5e8f6;
+  background-color: #e5e7ff;
 }
 
 /* Chat container styling */

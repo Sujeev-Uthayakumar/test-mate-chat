@@ -28,10 +28,10 @@ function Chat() {
             <Conversation
               name="Lilly"
               lastSenderName="Lilly"
-              info="Yes i can do it for you"
+              info="Yes I can do it for you!"
               className="conversation"
             >
-              <Avatar name="Lilly" />
+             {/* <Avatar name="Lilly" /> */}
             </Conversation>
             {/* Add more conversations as needed */}
           </ConversationList>
@@ -40,7 +40,7 @@ function Chat() {
         <ChatContainer className="chat-container">
           <ConversationHeader className="conversation-header">
             <ConversationHeader.Back />
-            <Avatar name="Zoe" />
+            {/* <Avatar name="Zoe" /> */}
             <ConversationHeader.Content
               userName="Zoe"
               info="Active 10 mins ago"
@@ -57,11 +57,14 @@ function Chat() {
 
         <Sidebar position="right" className="sidebar">
           <ExpansionPanel title="HELP" className="expansion-panel">
-            <p>Lorem ipsum</p>
+            <p>Documentation or User Manuals</p>
             {/* Add more content as needed */}
           </ExpansionPanel>
           <ExpansionPanel title="OPTIONS" className="expansion-panel">
-            <p>Lorem ipsum</p>
+            <p>Check for Updates</p>
+            <p>Contact Customer Support</p>
+            <p>Privacy Policy</p>
+            <p>Release Notes</p>
             {/* Add more content as needed */}
           </ExpansionPanel>
         </Sidebar>
