@@ -1,21 +1,25 @@
-.main-container {
-  background-color: #95add0;
-}
-
-.logo-navbar {
-  width: 0px;
-  height: 50px;
-  justify-content: center; /* Note: Remove the quotes around "center" */
-  background-color: #9eb4d4;
-  margin: 0;
-  padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 
 .brand-navbar {
   padding-left: 40px;
   margin: 0;
-  color: #ffffff;
-  font-family: "Honk", sans-serif; /* Use the 'Honk' font for the Test Mate text */
+  color: #ffffff; /* Assuming you want white text */
+  font-family: 'Noto Sans', sans-serif; /* Font family updated */
+  font-weight: bold;
+  /* No need to set font-size here since it's inline styled in the JSX */
+}
+
+.main-container {
+  background-color: #151b28;
+}
+
+.logo-navbar {
+  width: 0px;
+  height: 60px;
+  justify-content: center; /* Note: Remove the quotes around "center" */
+  background-color: #9eb4d4;
+  margin: 0;
+  padding: 0;
 }
 
 /* Add any additional styles as needed */

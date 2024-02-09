@@ -11,7 +11,9 @@ function LogoNavbar() {
             href="#home"
             className="brand-navbar title-text"
             style={{ fontSize: "37px" }}
-          ></Navbar.Brand>
+          >
+            TestMate {/* Text added here */}
+          </Navbar.Brand>
         </Container>
       </Navbar>
     </div>
