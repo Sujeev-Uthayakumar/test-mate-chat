@@ -4,12 +4,14 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { FiSend } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 import Instructions from "../Layout/Instructions";
 import Input from "../Input/Input";
 import gptAvatar from "../../assets/gpt-avatar.svg";
 import user from "../../assets/user.png";
 import warning from "../../assets/warning.svg";
+import API_CONSTANTS from "../../utils/api";
 
 const Chat = () => {
   const overflowRef = useRef(null);
@@ -40,6 +42,21 @@ const Chat = () => {
         message: "Sure! What do you need help with?",
       },
     ],
+  };
+
+  const makeRequest = (message) => {
+    const payload = {
+      user_input: message,
+    };
+
+    axios
+      .post(`${API_CONSTANTS.API_URL}${API_CONSTANTS.MESSAGE}`, payload)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   let isLoading = false;
@@ -124,10 +141,11 @@ const Chat = () => {
               />
             }
             {...register("input")}
-            onSubmit={console.log}
+            onSubmit={console.log("submit")}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 console.log(e.currentTarget.value);
+                makeRequest("test");
               }
             }}
           />
