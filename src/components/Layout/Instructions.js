@@ -1,7 +1,7 @@
 import { Stack, Heading, Icon, Button, Text } from "@chakra-ui/react";
 import { FiAlertTriangle, FiSun, FiZap } from "react-icons/fi";
 
-const Instructions = () => {
+const Instructions = ({ onClick }) => {
   const introdution = [
     {
       icon: FiSun,
@@ -46,7 +46,7 @@ const Instructions = () => {
         {introdution.map(({ icon, list, name }, key) => {
           const handleClick = (text) => {
             if (name === "Examples") {
-              return () => console.log(text);
+              return () => onClick(text);
             }
             return undefined;
           };
@@ -62,6 +62,14 @@ const Instructions = () => {
                   height="fit-content"
                   padding={4}
                   onClick={handleClick(text)}
+                  style={{
+                    cursor: name === "Examples" ? "pointer" : "default",
+                  }}
+                  _hover={
+                    name === "Examples"
+                      ? { bg: "blackAlpha.300", color: "white" }
+                      : {}
+                  }
                 >
                   <Text overflow="hidden" whiteSpace="normal">
                     {text}

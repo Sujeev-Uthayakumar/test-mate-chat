@@ -117,14 +117,29 @@ const Chat = () => {
               );
             })
           ) : (
-            <Instructions onClick={(text) => console.log("clicked")} />
+            <Instructions
+              onClick={(text) => {
+                const newMessage = {
+                  emitter: "user",
+                  message: text,
+                };
+
+                setMessages((currentMessages) => [
+                  ...currentMessages,
+                  newMessage,
+                ]);
+
+                makeRequest(text);
+                console.log("messages", messages);
+              }}
+            />
           )}
         </Stack>
       </Stack>
       <Stack
         height="20%"
         padding={4}
-        backgroundColor="blackAlpha.400"
+        backgroundColor="transparent"
         justifyContent="center"
         alignItems="center"
         overflow="hidden"
