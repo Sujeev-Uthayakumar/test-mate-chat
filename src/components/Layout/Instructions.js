@@ -40,7 +40,7 @@ const Instructions = () => {
       overflow="auto"
     >
       <Heading size="lg" marginY={8}>
-        ChatGPT
+        TestMate
       </Heading>
       <Stack direction={["column", "column", "row"]}>
         {introdution.map(({ icon, list, name }, key) => {

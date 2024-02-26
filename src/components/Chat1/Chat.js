@@ -14,12 +14,7 @@ import warning from "../../assets/warning.svg";
 import API_CONSTANTS from "../../utils/api";
 
 const Chat = () => {
-  const [messages, setMessages] = useState([
-    {
-      emitter: "gpt",
-      message: "Hello, I'm the Test-Mate ChatBot Ask me anything!",
-    },
-  ]);
+  const [messages, setMessages] = useState([]);
 
   const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -34,12 +29,7 @@ const Chat = () => {
   const overflowRef = useRef(null);
   const [parentRef] = useAutoAnimate();
 
-  const hasSelectedChat = {
-    id: 1,
-    role: "Admin",
-  };
-
-  function handleSendMessage() {}
+  console.log(messages.length);
 
   const updateScroll = () => {
     overflowRef.current?.scrollTo(0, overflowRef.current.scrollHeight);
@@ -82,7 +72,7 @@ const Chat = () => {
         ref={overflowRef}
       >
         <Stack spacing={2} padding={2} ref={parentRef} height="full">
-          {hasSelectedChat ? (
+          {messages.length !== 0 ? (
             messages.map((content, key) => {
               const { emitter, message } = content;
               const getAvatar = () => {
