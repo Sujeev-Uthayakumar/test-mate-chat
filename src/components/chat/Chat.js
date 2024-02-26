@@ -8,7 +8,7 @@ import axios from "axios";
 
 import Instructions from "../Layout/Instructions";
 import Input from "../Input/Input";
-import gptAvatar from "../../assets/gpt-avatar.svg";
+import gptAvatar from "../../assets/logo.webp";
 import user from "../../assets/user.png";
 import warning from "../../assets/warning.svg";
 import API_CONSTANTS from "../../utils/api";
@@ -187,8 +187,8 @@ const Chat = () => {
             }}
           />
           <Text textAlign="center" fontSize="sm" opacity={0.5}>
-            Free Research Preview. Our goal is to make AI systems more natural
-            and safe to interact with. Your feedback will help us improve.
+            TestMate is for personal use and educational purposes only. Our goal
+            is to make AI systems more natural and safe to interact with.
           </Text>
         </Stack>
       </Stack>
