@@ -95,7 +95,7 @@ const Sidebar = ({ isResponsive, ...props }) => {
         height="full"
         padding={2}
         color="white"
-        backgroundColor="gray.900"
+        backgroundColor="#171717"
         zIndex={1}
         transition="all ease .5s"
         {...responsiveProps}

@@ -20,6 +20,8 @@ const Input = forwardRef(
       inputLeftAddon,
       inputRightAddon,
       required,
+      value,
+      onChange,
       ...props
     },
     ref
@@ -31,7 +33,12 @@ const Input = forwardRef(
           {!!inputLeftAddon && (
             <InputLeftElement>{inputLeftAddon}</InputLeftElement>
           )}
-          <DefaultInput {...props} ref={ref} />
+          <DefaultInput
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            {...props}
+            ref={ref}
+          />
           {!!inputRightAddon && (
             <InputRightElement>{inputRightAddon}</InputRightElement>
           )}

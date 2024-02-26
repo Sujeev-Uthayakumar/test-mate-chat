@@ -1,5 +1,5 @@
 import { Avatar, IconButton, Spinner, Stack, Text } from "@chakra-ui/react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { FiSend } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
@@ -14,37 +14,39 @@ import warning from "../../assets/warning.svg";
 import API_CONSTANTS from "../../utils/api";
 
 const Chat = () => {
+  const [messages, setMessages] = useState([
+    {
+      emitter: "gpt",
+      message: "Hello, I'm the Test-Mate ChatBot Ask me anything!",
+    },
+  ]);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const handleChange = (value) => {
+    setInputValue(value);
+  };
+
+  useEffect(() => {
+    updateScroll();
+  }, [messages]);
+
   const overflowRef = useRef(null);
   const [parentRef] = useAutoAnimate();
-
-  const { register, setValue, handleSubmit } = useForm();
 
   const hasSelectedChat = {
     id: 1,
     role: "Admin",
   };
 
-  const selectedChat = {
-    id: 1,
-    role: "Admin",
-    content: [
-      {
-        emitter: "gpt",
-        message:
-          "Hello! I'm ChatGPT, a conversational AI. How can I help you today?",
-      },
-      {
-        emitter: "user",
-        message: "I need help with my homework.",
-      },
-      {
-        emitter: "gpt",
-        message: "Sure! What do you need help with?",
-      },
-    ],
+  function handleSendMessage() {}
+
+  const updateScroll = () => {
+    overflowRef.current?.scrollTo(0, overflowRef.current.scrollHeight);
   };
 
   const makeRequest = (message) => {
+    setIsLoading(true);
     const payload = {
       user_input: message,
     };
@@ -52,14 +54,22 @@ const Chat = () => {
     axios
       .post(`${API_CONSTANTS.API_URL}${API_CONSTANTS.MESSAGE}`, payload)
       .then((response) => {
-        console.log(response);
+        const { data } = response;
+        setMessages((currentMessages) => [
+          ...currentMessages,
+          { emitter: "gpt", message: data.output },
+        ]);
       })
       .catch((error) => {
-        console.error(error);
+        setMessages((currentMessages) => [
+          ...currentMessages,
+          { emitter: "gpt", message: "Sorry, I'm having trouble right now." },
+        ]);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
-
-  let isLoading = false;
 
   return (
     <Stack width="full" height="full">
@@ -73,7 +83,8 @@ const Chat = () => {
       >
         <Stack spacing={2} padding={2} ref={parentRef} height="full">
           {hasSelectedChat ? (
-            selectedChat.content.map(({ emitter, message }, key) => {
+            messages.map((content, key) => {
+              const { emitter, message } = content;
               const getAvatar = () => {
                 switch (emitter) {
                   case "gpt":
@@ -132,20 +143,46 @@ const Chat = () => {
           <Input
             autoFocus={true}
             variant="filled"
+            value={inputValue}
+            onChange={handleChange}
             inputRightAddon={
               <IconButton
                 aria-label="send_button"
                 icon={!isLoading ? <FiSend /> : <Spinner />}
                 backgroundColor="transparent"
-                onClick={console.log("submit")}
+                isDisabled={inputValue === ""}
+                onClick={() => {
+                  const newMessage = {
+                    emitter: "user",
+                    message: inputValue,
+                  };
+
+                  setMessages((currentMessages) => [
+                    ...currentMessages,
+                    newMessage,
+                  ]);
+
+                  makeRequest(inputValue);
+                  setInputValue("");
+                }}
               />
             }
-            {...register("input")}
             onSubmit={console.log("submit")}
             onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                console.log(e.currentTarget.value);
-                makeRequest("test");
+              if (e.key === "Enter" && !isLoading) {
+                if (inputValue === "") return;
+                const newMessage = {
+                  emitter: "user",
+                  message: inputValue,
+                };
+
+                setMessages((currentMessages) => [
+                  ...currentMessages,
+                  newMessage,
+                ]);
+
+                makeRequest(inputValue);
+                setInputValue("");
               }
             }}
           />
