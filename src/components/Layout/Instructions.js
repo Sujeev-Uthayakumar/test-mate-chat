@@ -7,9 +7,9 @@ const Instructions = ({ onClick }) => {
       icon: FiSun,
       name: "Examples",
       list: [
-        "Explain quantum computing in simple terms",
-        "Got any creative ideas for a 10 year old's birthday?",
-        "How do i make an HTTP request in JavaScript?",
+        "Who are the top 10 contributors to the codebase?",
+        "Summarize the purpose of the codebase?",
+        "What file types are present?",
       ],
     },
     {
@@ -18,7 +18,7 @@ const Instructions = ({ onClick }) => {
       list: [
         "Remembers what user said earlier in the conversation",
         "Allows user to provide follow-up corrections",
-        "Trained to decline inappropriate requests",
+        "Trained on a diverse range of data from the repository",
       ],
     },
     {
@@ -59,7 +59,7 @@ const Instructions = ({ onClick }) => {
                 <Button
                   key={key}
                   maxWidth={64}
-                  height="fit-content"
+                  height="100px"
                   padding={4}
                   onClick={handleClick(text)}
                   style={{

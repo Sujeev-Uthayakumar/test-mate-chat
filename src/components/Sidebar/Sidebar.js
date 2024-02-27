@@ -34,6 +34,7 @@ const Sidebar = ({ isResponsive, ...props }) => {
   let chat = [
     { id: 1, role: "Admin" },
     { id: 2, role: "User" },
+    { id: 3, role: "Tester" },
   ];
 
   let selectedChat = chat[0];
@@ -136,9 +137,22 @@ const Sidebar = ({ isResponsive, ...props }) => {
                 id={id}
                 key={id}
                 cursor="pointer"
-                leftIcon={<FiMessageSquare />}
+                leftIcon={() => {
+                  return (
+                    <div
+                      style={{
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <FiMessageSquare />
+                    </div>
+                  );
+                }}
                 justifyContent="flex-start"
-                padding={2}
+                padding={6}
+                maxHeight="64px"
+                height="full"
+                marginBottom="3px"
                 overflow="hidden"
                 textOverflow="ellipsis"
                 backgroundColor={
@@ -147,6 +161,9 @@ const Sidebar = ({ isResponsive, ...props }) => {
                 onClick={() => console.log("select")}
                 _hover={{
                   backgroundColor: "whiteAlpha.100",
+                }}
+                style={{
+                  border: "1px solid #FFFFFF5C",
                 }}
               >
                 <Text>{role}</Text>
