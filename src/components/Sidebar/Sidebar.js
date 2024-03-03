@@ -137,6 +137,7 @@ const Sidebar = ({ isResponsive, ...props }) => {
                 id={id}
                 key={id}
                 cursor="pointer"
+                borderRadius={15}
                 leftIcon={() => {
                   return (
                     <div
