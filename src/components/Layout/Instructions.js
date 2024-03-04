@@ -7,9 +7,9 @@ const Instructions = ({ onClick }) => {
       icon: FiSun,
       name: "Examples",
       list: [
-        "Who are the top 10 contributors to the codebase?",
+        "List the top 10 contributors to the codebase in order?",
         "Summarize the purpose of the codebase?",
-        "What file types are present?",
+        "List the file types that are present?",
       ],
     },
     {
@@ -60,6 +60,7 @@ const Instructions = ({ onClick }) => {
                   key={key}
                   maxWidth={64}
                   height="100px"
+                  minWidth="60"
                   padding={4}
                   onClick={handleClick(text)}
                   style={{
