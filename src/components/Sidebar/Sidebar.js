@@ -1,5 +1,6 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useEffect, useState } from "react";
+import { Spinner } from "@chakra-ui/react";
 
 import {
   Badge,
@@ -31,11 +32,8 @@ const Sidebar = ({ isResponsive, ...props }) => {
     handleOpen = () => setIsOpen(true),
     handleClose = () => setIsOpen(false);
 
-  let chat = [
-    { id: 1, role: "Admin" },
-    { id: 2, role: "User" },
-    { id: 3, role: "Tester" },
-  ];
+  let name = props.repoName || <Spinner />;
+  let chat = [{ id: 1, role: name }];
 
   let selectedChat = chat[0];
 
