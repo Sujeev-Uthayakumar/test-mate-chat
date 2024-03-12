@@ -63,7 +63,7 @@ const Sidebar = ({ isResponsive, ...props }) => {
             icon={<FiMenu />}
             onClick={handleOpen}
           />
-          <Heading size="md">Role</Heading>
+          <Heading size="md">TestMate</Heading>
           <IconButton
             aria-label="add"
             icon={<FiPlus />}
@@ -89,12 +89,12 @@ const Sidebar = ({ isResponsive, ...props }) => {
         />
       )}
       <Stack
-        maxWidth="350px"
+        maxWidth="325px"
         width="full"
         height="full"
         padding={2}
         color="white"
-        backgroundColor="#171717"
+        backgroundColor={colorMode === "dark" ? "#171717" : "#F9F9F9"}
         zIndex={1}
         transition="all ease .5s"
         {...responsiveProps}
@@ -188,8 +188,9 @@ const Sidebar = ({ isResponsive, ...props }) => {
             _hover={{
               backgroundColor: "blackAlpha.300",
             }}
+            onClick={() => console.log("clear messages")}
           >
-            Clear conversations
+            Clear conversation
           </Button>
           <Button
             justifyContent="flex-start"
@@ -201,7 +202,7 @@ const Sidebar = ({ isResponsive, ...props }) => {
               backgroundColor: "blackAlpha.300",
             }}
           >
-            {(colorMode = "dark" ? "Light mode" : "Dark mode")}
+            {colorMode === "dark" ? "Light mode" : "Dark mode"}
           </Button>
           <Button
             leftIcon={<FiExternalLink />}
@@ -212,7 +213,7 @@ const Sidebar = ({ isResponsive, ...props }) => {
               backgroundColor: "blackAlpha.300",
             }}
           >
-            Updates & FAQ
+            Dashboard
           </Button>
           <Button
             leftIcon={<FiLogOut />}

@@ -3,7 +3,6 @@ import { useRef, useState, useEffect } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { FiSend } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
-import { useForm } from "react-hook-form";
 import axios from "axios";
 
 import Instructions from "../Layout/Instructions";
