@@ -1,9 +1,10 @@
-import { Stack, useMediaQuery } from "@chakra-ui/react";
+import { Stack, useMediaQuery, Box } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 import Sidebar from "../Sidebar/Sidebar";
 import Chat from "../Chat/Chat";
+import Dashboard from "../Layout/Dashboard";
 import API_CONSTANTS from "../../utils/api";
 
 const ChatScreen = () => {
@@ -30,8 +31,14 @@ const ChatScreen = () => {
       height="full"
       spacing={0}
     >
+      {/* Sidebar configuration */}
       <Sidebar repoName={repoName} isResponsive={isResponsive} />
-      <Chat />
+
+      {/* Main content area */}
+      <Box flex="1" overflowY="auto" height="100vh">
+        {/* <Chat/> */}
+        <Dashboard />
+      </Box>
     </Stack>
   );
 };
