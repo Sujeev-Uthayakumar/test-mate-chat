@@ -1,5 +1,8 @@
 import { Flex, Grid, Image, SimpleGrid, Spinner } from "@chakra-ui/react";
 import { VscFileSubmodule } from "react-icons/vsc";
+import { BsFillPeopleFill } from "react-icons/bs";
+import { IoGitCommitSharp } from "react-icons/io5";
+import { IoMdPricetags } from "react-icons/io";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
@@ -11,7 +14,6 @@ import gptAvatar from "../../assets/gpt-avatar.svg";
 import LargeListCard from "../LargeListCard/LargeListCard";
 import SmallListCard from "../SmallListCard/SmallListCard";
 import API_CONSTANTS from "../../utils/api";
-import { set } from "react-hook-form";
 
 const Dashboard = () => {
   const [numberOfFiles, setNumberOfFiles] = useState(null);
@@ -180,14 +182,17 @@ const Dashboard = () => {
         <StatCard
           title={"Number of Commits"}
           amount={numberOfCommits || <Spinner />}
+          icon={<IoGitCommitSharp height={24} />}
         />
         <StatCard
           title={"Number of Commiters"}
           amount={numberOfCommiters || <Spinner />}
+          icon={<BsFillPeopleFill height={24} />}
         />
         <StatCard
           title={"Number of Tags"}
           amount={numberOfTags || <Spinner />}
+          icon={<IoMdPricetags height={24} />}
         />
       </SimpleGrid>
       <Grid

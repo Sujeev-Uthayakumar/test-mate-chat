@@ -10,7 +10,12 @@ import API_CONSTANTS from "../../utils/api";
 const ChatScreen = () => {
   const [isResponsive] = useMediaQuery("(max-width: 800px)");
   const [repoName, setRepoName] = useState("");
-  const [commitData, setCommitData] = useState([]);
+  const [activeComponent, setActiveComponent] = useState("dashboard"); // Assuming "dashboard" as default
+
+  // Function to change active component
+  const switchComponent = (componentName) => {
+    setActiveComponent(componentName);
+  };
 
   useEffect(() => {
     axios
@@ -32,12 +37,14 @@ const ChatScreen = () => {
       spacing={0}
     >
       {/* Sidebar configuration */}
-      <Sidebar repoName={repoName} isResponsive={isResponsive} />
+      <Sidebar
+        repoName={repoName}
+        isResponsive={isResponsive}
+        switchComponent={switchComponent}
+      />
 
-      {/* Main content area */}
       <Box flex="1" overflowY="auto" height="100vh">
-        {/* <Chat/> */}
-        <Dashboard />
+        {activeComponent === "chat" ? <Chat /> : <Dashboard />}
       </Box>
     </Stack>
   );

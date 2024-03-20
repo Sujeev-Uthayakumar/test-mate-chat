@@ -27,7 +27,7 @@ import {
 } from "react-icons/fi";
 import { motion } from "framer-motion";
 
-const Sidebar = ({ isResponsive, ...props }) => {
+const Sidebar = ({ switchComponent, isResponsive, ...props }) => {
   const [isOpen, setIsOpen] = useState(true),
     handleOpen = () => setIsOpen(true),
     handleClose = () => setIsOpen(false);
@@ -112,22 +112,7 @@ const Sidebar = ({ isResponsive, ...props }) => {
             onClick={handleClose}
           />
         )}
-        <Button
-          leftIcon={<FiPlus size={16} />}
-          borderWidth={1}
-          borderColor="whiteAlpha.400"
-          rounded={4}
-          padding={2}
-          justifyContent="flex-start"
-          transition="all ease .5s"
-          backgroundColor="transparent"
-          onClick={() => console.log("add")}
-          _hover={{
-            backgroundColor: "whiteAlpha.100",
-          }}
-        >
-          New chat
-        </Button>
+
         <Stack height="full" overflowY="auto" ref={listRef}>
           {chat.map(({ id, role }) => {
             return (
@@ -167,13 +152,6 @@ const Sidebar = ({ isResponsive, ...props }) => {
               >
                 <Text>{role}</Text>
                 <Spacer />
-                <FiTrash2
-                  className="icon"
-                  onClick={() => console.log("delete")}
-                  style={{
-                    display: selectedChat?.id === id ? "block" : "none",
-                  }}
-                />
               </Button>
             );
           })}
@@ -205,6 +183,19 @@ const Sidebar = ({ isResponsive, ...props }) => {
             {colorMode === "dark" ? "Light mode" : "Dark mode"}
           </Button>
           <Button
+            leftIcon={<FiMessageSquare />}
+            justifyContent="flex-start"
+            padding={2}
+            backgroundColor="transparent"
+            _hover={{
+              backgroundColor: "blackAlpha.300",
+            }}
+            onClick={() => switchComponent("chat")}
+            // Rest of the Button props
+          >
+            Chat
+          </Button>
+          <Button
             leftIcon={<FiExternalLink />}
             justifyContent="flex-start"
             padding={2}
@@ -212,19 +203,9 @@ const Sidebar = ({ isResponsive, ...props }) => {
             _hover={{
               backgroundColor: "blackAlpha.300",
             }}
+            onClick={() => switchComponent("dashboard")}
           >
             Dashboard
-          </Button>
-          <Button
-            leftIcon={<FiLogOut />}
-            justifyContent="flex-start"
-            padding={2}
-            backgroundColor="transparent"
-            _hover={{
-              backgroundColor: "blackAlpha.300",
-            }}
-          >
-            Log Out
           </Button>
         </Stack>
       </Stack>
