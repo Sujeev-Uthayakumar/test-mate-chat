@@ -170,7 +170,7 @@ const Sidebar = ({ switchComponent, isResponsive, ...props }) => {
           >
             Clear conversation
           </Button>
-          <Button
+          {/* <Button
             justifyContent="flex-start"
             padding={2}
             onClick={toggleColorMode}
@@ -181,7 +181,7 @@ const Sidebar = ({ switchComponent, isResponsive, ...props }) => {
             }}
           >
             {colorMode === "dark" ? "Light mode" : "Dark mode"}
-          </Button>
+          </Button> */}
           <Button
             leftIcon={<FiMessageSquare />}
             justifyContent="flex-start"
