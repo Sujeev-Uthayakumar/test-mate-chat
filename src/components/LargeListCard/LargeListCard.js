@@ -47,14 +47,13 @@ const LargeListCard = ({ title, amount, captions, data }) => {
         </Thead>
         <Tbody>
           {data.map((row) => {
+            console.log(row)
             return (
               <DashboardTableRow
-                key={row.name}
-                name={row.name}
-                logo={row.logo}
-                members={row.members}
-                budget={row.budget}
-                progression={row.progression}
+                key={row.commitHash}
+                hash={row.commitHash}
+                date={row.dateOfCommit}
+                message={row.commitMessage}
               />
             );
           })}

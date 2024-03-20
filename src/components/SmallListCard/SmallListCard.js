@@ -29,13 +29,9 @@ const SmallListCard = ({ title, amount, data }) => {
           {data.map((row, index, arr) => {
             return (
               <TimelineRow
-                key={row.title}
-                logo={row.logo}
-                title={row.title}
-                date={row.date}
-                color={row.color}
-                index={index}
-                arrLength={arr.length}
+                key={row.totalCommits}
+                author={row.author}
+                commits={row.totalCommits}
               />
             );
           })}

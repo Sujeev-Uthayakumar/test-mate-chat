@@ -68,6 +68,7 @@ const Dashboard = () => {
     axios
       .post(`${API_CONSTANTS.API_URL}${API_CONSTANTS.RECENT_COMMITS}`)
       .then((response) => {
+        setRecentCommits(response.data)
         console.log("Repository data:", response.data);
       })
       .catch((error) => {
@@ -77,6 +78,7 @@ const Dashboard = () => {
     axios
       .post(`${API_CONSTANTS.API_URL}${API_CONSTANTS.TOP_COMMITERS}`)
       .then((response) => {
+        setTopCommiters(response.data)
         console.log("Repository data:", response.data);
       })
       .catch((error) => {
@@ -84,88 +86,6 @@ const Dashboard = () => {
       });
   }, []);
 
-  const timelineData = [
-    {
-      logo: gptAvatar,
-      title: "$2400, Design changes",
-      date: "22 DEC 7:20 PM",
-      color: "teal.300",
-    },
-    {
-      logo: gptAvatar,
-      title: "New order #4219423",
-      date: "21 DEC 11:21 PM",
-      color: "orange",
-    },
-    {
-      logo: gptAvatar,
-      title: "Server Payments for April",
-      date: "21 DEC 9:28 PM",
-      color: "blue.400",
-    },
-    {
-      logo: gptAvatar,
-      title: "New card added for order #3210145",
-      date: "20 DEC 3:52 PM",
-      color: "orange.300",
-    },
-    {
-      logo: gptAvatar,
-      title: "Unlock packages for Development",
-      date: "19 DEC 11:35 PM",
-      color: "purple",
-    },
-    {
-      logo: gptAvatar,
-      title: "New order #9851258",
-      date: "18 DEC 4:41 PM",
-    },
-  ];
-
-  const dashboardTableData = [
-    {
-      logo: gptAvatar,
-      name: "Purity UI Version",
-      members: [gptAvatar],
-      budget: "$14,000",
-      progression: 60,
-    },
-    {
-      logo: gptAvatar,
-      name: "Add Progress Track",
-      members: [gptAvatar],
-      budget: "$3,000",
-      progression: 10,
-    },
-    {
-      logo: gptAvatar,
-      name: "Fix Platform Errors",
-      members: [gptAvatar],
-      budget: "Not set",
-      progression: 100,
-    },
-    {
-      logo: gptAvatar,
-      name: "Launch our Mobile App",
-      members: [gptAvatar],
-      budget: "$32,000",
-      progression: 100,
-    },
-    {
-      logo: gptAvatar,
-      name: "Add the New Pricing Page",
-      members: [gptAvatar],
-      budget: "$400",
-      progression: 25,
-    },
-    {
-      logo: gptAvatar,
-      name: "Redesign New Online Shop",
-      members: [gptAvatar],
-      budget: "$7,600",
-      progression: 40,
-    },
-  ];
   return (
     <Flex
       marginLeft="25px"
@@ -231,9 +151,9 @@ const Dashboard = () => {
         <LargeListCard
           title={"Recent Commits"}
           captions={["Date", "Commit Hash", "Commit Message"]}
-          data={dashboardTableData}
+          data={recentCommits}
         />
-        <SmallListCard title={"Top Contributers"} data={timelineData} />
+        <SmallListCard title={"Top Contributers"} data={topCommiters} />
       </Grid>
     </Flex>
   );
