@@ -80,16 +80,6 @@ const Dashboard = () => {
       .catch((error) => {
         console.error("Error fetching repository data:", error);
       });
-
-    axios
-      .post(`${API_CONSTANTS.API_URL}${API_CONSTANTS.README_CONTENT}`)
-      .then((response) => {
-        console.log("Repository data:", response.data);
-        setReadmeContent(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching repository data:", error);
-      });
   }, []);
 
   const timelineData = [
