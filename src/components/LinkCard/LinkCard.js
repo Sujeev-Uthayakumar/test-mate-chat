@@ -15,13 +15,12 @@ import React from "react";
 // react icons
 import { FiSend } from "react-icons/fi";
 
-const LinkCard = ({ title, description, backgroundImage }) => {
+const LinkCard = ({ title, description }) => {
   const overlayRef = React.useRef();
   return (
     <Card minHeight="290.5px" p="1rem">
       <CardBody
         p="0px"
-        backgroundImage={backgroundImage}
         bgPosition="center"
         bgRepeat="no-repeat"
         w="100%"
@@ -31,7 +30,6 @@ const LinkCard = ({ title, description, backgroundImage }) => {
         borderRadius="15px"
       >
         <Box
-          bg="linear-gradient(360deg, rgba(49, 56, 96, 0.16) 0%, rgba(21, 25, 40, 0.88) 100%)"
           w="100%"
           position="absolute"
           h="inherit"
@@ -53,26 +51,23 @@ const LinkCard = ({ title, description, backgroundImage }) => {
             </Text>
             <Spacer />
             <Flex align="center" mt={{ sm: "20px", lg: "40px", xl: "90px" }}>
-              <Button p="0px" variant="no-hover" bg="transparent" mt="12px">
+              <Button
+                p="0px"
+                variant="no-hover"
+                bg="transparent"
+                mt="12px"
+                as="a" // Renders the component as an anchor tag
+                href="https://www.openai.com/"
+              >
                 <Text
                   fontSize="sm"
                   fontWeight="bold"
                   _hover={{ me: "4px" }}
                   transition="all .5s ease"
+                  color={"white"}
                 >
-                  Read more
+                  Learn more about OpenAI
                 </Text>
-                <Icon
-                  as={FiSend}
-                  w="20px"
-                  h="20px"
-                  fontSize="xl"
-                  transition="all .5s ease"
-                  mx=".3rem"
-                  cursor="pointer"
-                  _hover={{ transform: "translateX(20%)" }}
-                  pt="4px"
-                />
               </Button>
             </Flex>
           </Flex>

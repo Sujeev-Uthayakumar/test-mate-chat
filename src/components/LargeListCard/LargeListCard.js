@@ -27,21 +27,6 @@ const LargeListCard = ({ title, amount, captions, data }) => {
           <Text fontSize="lg" color={textColor} fontWeight="bold" pb=".5rem">
             {title}
           </Text>
-          <Flex align="center">
-            <Icon
-              as={IoCheckmarkDoneCircleSharp}
-              color="teal.300"
-              w={4}
-              h={4}
-              pe="3px"
-            />
-            <Text fontSize="sm" color="gray.400" fontWeight="normal">
-              <Text fontWeight="bold" as="span">
-                {amount} done
-              </Text>{" "}
-              this month.
-            </Text>
-          </Flex>
         </Flex>
       </CardHeader>
       <Table variant="simple" color={textColor}>
