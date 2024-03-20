@@ -59,17 +59,6 @@ const BuiltByDevelopers = ({ title, name, description, image }) => {
                 >
                   Read more
                 </Text>
-                <Icon
-                  as={FiSend}
-                  w="20px"
-                  h="20px"
-                  fontSize="2xl"
-                  transition="all .5s ease"
-                  mx=".3rem"
-                  cursor="pointer"
-                  pt="4px"
-                  _hover={{ transform: "translateX(20%)" }}
-                />
               </Button>
             </Flex>
           </Flex>
