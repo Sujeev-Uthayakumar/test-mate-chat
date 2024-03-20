@@ -21,7 +21,11 @@ const LargeListCard = ({ title, amount, captions, data }) => {
   const textColor = useColorModeValue("gray.700", "white");
 
   return (
-    <Card p="16px" overflowX={{ sm: "scroll", xl: "hidden" }}>
+    <Card
+      p="16px"
+      overflowX={{ sm: "scroll", xl: "hidden" }}
+      backgroundColor="rgba(255, 255, 255, 0.08)"
+    >
       <CardHeader p="12px 0px 28px 0px">
         <Flex direction="column">
           <Text fontSize="lg" color={textColor} fontWeight="bold" pb=".5rem">

@@ -16,7 +16,7 @@ const SmallListCard = ({ title, amount, data }) => {
   const textColor = useColorModeValue("gray.700", "white");
 
   return (
-    <Card maxH="100%">
+    <Card maxH="100%" backgroundColor="rgba(255, 255, 255, 0.08)">
       <CardHeader p="22px 0px 0px 14px">
         <Flex direction="column">
           <Text fontSize="lg" color={textColor} fontWeight="bold" pb=".5rem">

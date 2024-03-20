@@ -18,7 +18,11 @@ const BuiltByDevelopers = ({ title, name, description, image }) => {
   const textColor = useColorModeValue("gray.700", "white");
 
   return (
-    <Card minHeight="290.5px" p="1.2rem">
+    <Card
+      minHeight="290.5px"
+      p="1.2rem"
+      backgroundColor="rgba(255, 255, 255, 0.08)"
+    >
       <CardBody w="100%">
         <Flex flexDirection={{ sm: "column", lg: "row" }} w="100%">
           <Flex

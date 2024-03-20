@@ -11,7 +11,7 @@ import IconBox from "../IconBox/IconBox";
 
 const StatCard = ({ title, amount, percentage, icon }) => {
   return (
-    <Card minH="83px">
+    <Card minH="83px" backgroundColor="rgba(255, 255, 255, 0.08)">
       <CardBody>
         <Flex flexDirection="row" align="center" justify="center" w="100%">
           <Stat me="auto">
