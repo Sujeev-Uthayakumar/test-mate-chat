@@ -6,11 +6,12 @@ import Sidebar from "../Sidebar/Sidebar";
 import Chat from "../Chat/Chat";
 import Dashboard from "../Layout/Dashboard";
 import API_CONSTANTS from "../../utils/api";
+import { ChatProvider } from "../../providers/ChatProvider";
 
 const ChatScreen = () => {
   const [isResponsive] = useMediaQuery("(max-width: 800px)");
   const [repoName, setRepoName] = useState("");
-  const [activeComponent, setActiveComponent] = useState("dashboard"); // Assuming "dashboard" as default
+  const [activeComponent, setActiveComponent] = useState("chat");
 
   // Function to change active component
   const switchComponent = (componentName) => {
@@ -30,23 +31,25 @@ const ChatScreen = () => {
   }, []);
 
   return (
-    <Stack
-      direction={!isResponsive ? "row" : "column"}
-      width="full"
-      height="full"
-      spacing={0}
-    >
-      {/* Sidebar configuration */}
-      <Sidebar
-        repoName={repoName}
-        isResponsive={isResponsive}
-        switchComponent={switchComponent}
-      />
+    <ChatProvider>
+      <Stack
+        direction={!isResponsive ? "row" : "column"}
+        width="full"
+        height="full"
+        spacing={0}
+      >
+        {/* Sidebar configuration */}
+        <Sidebar
+          repoName={repoName}
+          isResponsive={isResponsive}
+          switchComponent={switchComponent}
+        />
 
-      <Box flex="1" overflowY="auto" height="100vh">
-        {activeComponent === "chat" ? <Chat /> : <Dashboard />}
-      </Box>
-    </Stack>
+        <Box flex="1" overflowY="auto" height="100vh">
+          {activeComponent === "chat" ? <Chat /> : <Dashboard />}
+        </Box>
+      </Stack>
+    </ChatProvider>
   );
 };
 

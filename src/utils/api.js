@@ -9,6 +9,7 @@ const API_CONSTANTS = {
   README_CONTENT: "/api/get_readme_content",
   RECENT_COMMITS: "/api/get_recent_commits",
   TOP_COMMITERS: "/api/get_top_commiters",
+  CLEAR_CONVERSATION: "/api/clear_conversation",
 };
 
 export default API_CONSTANTS;

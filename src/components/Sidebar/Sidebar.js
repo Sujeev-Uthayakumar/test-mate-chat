@@ -1,7 +1,7 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Spinner } from "@chakra-ui/react";
-
+import axios from "axios";
 import {
   Badge,
   Button,
@@ -15,17 +15,16 @@ import {
 } from "@chakra-ui/react";
 import {
   FiExternalLink,
-  FiLogOut,
   FiMenu,
   FiMessageSquare,
-  FiMoon,
   FiPlus,
-  FiSun,
   FiTrash2,
-  FiUser,
   FiX,
 } from "react-icons/fi";
 import { motion } from "framer-motion";
+
+import { useChat } from "../../providers/ChatProvider";
+import API_CONSTANTS from "../../utils/api";
 
 const Sidebar = ({ switchComponent, isResponsive, ...props }) => {
   const [isOpen, setIsOpen] = useState(true),
@@ -39,7 +38,23 @@ const Sidebar = ({ switchComponent, isResponsive, ...props }) => {
 
   const [listRef] = useAutoAnimate();
 
-  let { toggleColorMode, colorMode } = useColorMode();
+  let { colorMode } = useColorMode();
+
+  const { addMessage, clearMessages } = useChat();
+
+  const clearConversation = () => {
+    axios
+      .post(`${API_CONSTANTS.API_URL}${API_CONSTANTS.CLEAR_CONVERSATION}`)
+      .then((response) => {
+        clearMessages();
+      })
+      .catch((error) => {
+        addMessage({
+          emitter: "gpt",
+          message: "Sorry, I'm having trouble clearing your conversation.",
+        });
+      });
+  };
 
   let responsiveProps = isResponsive
     ? {
@@ -166,7 +181,7 @@ const Sidebar = ({ switchComponent, isResponsive, ...props }) => {
             _hover={{
               backgroundColor: "blackAlpha.300",
             }}
-            onClick={() => console.log("clear messages")}
+            onClick={() => clearConversation()}
           >
             Clear conversation
           </Button>
@@ -179,7 +194,6 @@ const Sidebar = ({ switchComponent, isResponsive, ...props }) => {
               backgroundColor: "blackAlpha.300",
             }}
             onClick={() => switchComponent("chat")}
-            // Rest of the Button props
           >
             Chat
           </Button>

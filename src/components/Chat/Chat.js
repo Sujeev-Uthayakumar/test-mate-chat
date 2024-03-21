@@ -11,9 +11,10 @@ import gptAvatar from "../../assets/logo.webp";
 import user from "../../assets/user.png";
 import warning from "../../assets/warning.svg";
 import API_CONSTANTS from "../../utils/api";
+import { useChat } from "../../providers/ChatProvider";
 
 const Chat = () => {
-  const [messages, setMessages] = useState([]);
+  const { messages, addMessage, clearMessages } = useChat();
 
   const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -44,16 +45,13 @@ const Chat = () => {
       .post(`${API_CONSTANTS.API_URL}${API_CONSTANTS.MESSAGE}`, payload)
       .then((response) => {
         const { data } = response;
-        setMessages((currentMessages) => [
-          ...currentMessages,
-          { emitter: "gpt", message: data.output },
-        ]);
+        addMessage({ emitter: "gpt", message: data.output });
       })
       .catch((error) => {
-        setMessages((currentMessages) => [
-          ...currentMessages,
-          { emitter: "gpt", message: "Sorry, I'm having trouble right now." },
-        ]);
+        addMessage({
+          emitter: "gpt",
+          message: "Sorry, I'm having trouble right now.",
+        });
       })
       .finally(() => {
         setIsLoading(false);
@@ -122,11 +120,7 @@ const Chat = () => {
                   emitter: "user",
                   message: text,
                 };
-
-                setMessages((currentMessages) => [
-                  ...currentMessages,
-                  newMessage,
-                ]);
+                addMessage(newMessage);
 
                 makeRequest(text);
                 console.log("messages", messages);
@@ -160,11 +154,7 @@ const Chat = () => {
                     emitter: "user",
                     message: inputValue,
                   };
-
-                  setMessages((currentMessages) => [
-                    ...currentMessages,
-                    newMessage,
-                  ]);
+                  addMessage(newMessage);
 
                   makeRequest(inputValue);
                   setInputValue("");
@@ -179,11 +169,7 @@ const Chat = () => {
                   emitter: "user",
                   message: inputValue,
                 };
-
-                setMessages((currentMessages) => [
-                  ...currentMessages,
-                  newMessage,
-                ]);
+                addMessage(newMessage);
 
                 makeRequest(inputValue);
                 setInputValue("");
