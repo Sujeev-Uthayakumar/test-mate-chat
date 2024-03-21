@@ -50,7 +50,12 @@ const LinkCard = ({ title, description }) => {
             <Text fontSize="xl" fontWeight="bold" pb=".3rem">
               {title}
             </Text>
-            <Text fontSize="sm" fontWeight="normal" w={{ lg: "92%" }}>
+            <Text
+              fontSize="sm"
+              fontWeight="normal"
+              w={{ lg: "92%" }}
+              color="gray.400"
+            >
               {description}
             </Text>
             <Spacer />
@@ -61,7 +66,7 @@ const LinkCard = ({ title, description }) => {
                 bg="transparent"
                 mt="12px"
                 as="a" // Renders the component as an anchor tag
-                href="https://www.openai.com/"
+                href="https://github.com/OpenLiberty/open-liberty"
               >
                 <Text
                   fontSize="sm"
@@ -70,7 +75,7 @@ const LinkCard = ({ title, description }) => {
                   transition="all .5s ease"
                   color={"white"}
                 >
-                  Learn more about OpenAI
+                  Learn more about Open Liberty
                 </Text>
               </Button>
             </Flex>

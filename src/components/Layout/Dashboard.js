@@ -68,7 +68,7 @@ const Dashboard = () => {
     axios
       .post(`${API_CONSTANTS.API_URL}${API_CONSTANTS.RECENT_COMMITS}`)
       .then((response) => {
-        setRecentCommits(response.data)
+        setRecentCommits(response.data);
         console.log("Repository data:", response.data);
       })
       .catch((error) => {
@@ -78,7 +78,7 @@ const Dashboard = () => {
     axios
       .post(`${API_CONSTANTS.API_URL}${API_CONSTANTS.TOP_COMMITERS}`)
       .then((response) => {
-        setTopCommiters(response.data)
+        setTopCommiters(response.data);
         console.log("Repository data:", response.data);
       })
       .catch((error) => {
@@ -123,9 +123,9 @@ const Dashboard = () => {
       >
         <InfoCard
           title={"Built by Developers"}
-          name={"Purity UI Dashboard"}
+          name={"Built using OpenAI's GPT-4"}
           description={
-            <ReactMarkdown>{readmeContent}</ReactMarkdown> || <Spinner />
+            "An application integrating GPT-4 for intelligent bug detection and fixing advice within code repos, in the form of a conversational tool."
           }
           image={
             <Image
@@ -137,9 +137,9 @@ const Dashboard = () => {
         />
         <LinkCard
           backgroundImage={gptAvatar}
-          title={"Built using OpenAI's GPT-4"}
+          title={"Open Liberty"}
           description={
-            "An application integrating GPT-4 for intelligent bug detection and fixing advice within code repos."
+            "Open Liberty is an open source implementation of Eclipse MicroProfile and Jakarta EE from IBM. It is the foundation of the WebSphere Liberty app server."
           }
         />
       </Grid>
@@ -150,7 +150,7 @@ const Dashboard = () => {
       >
         <LargeListCard
           title={"Recent Commits"}
-          captions={["Date", "Commit Hash", "Commit Message"]}
+          captions={["Commit Hash", "Date", "Commit Message"]}
           data={recentCommits}
         />
         <SmallListCard title={"Top Contributers"} data={topCommiters} />

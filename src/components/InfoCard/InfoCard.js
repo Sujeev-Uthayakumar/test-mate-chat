@@ -47,6 +47,8 @@ const BuiltByDevelopers = ({ title, name, description, image }) => {
                 variant="no-hover"
                 bg="transparent"
                 my={{ sm: "1.5rem", lg: "0px" }}
+                as="a"
+                href="https://openai.com/blog/openai-api"
               >
                 <Text
                   fontSize="sm"

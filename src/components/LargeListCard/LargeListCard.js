@@ -1,7 +1,7 @@
 // Chakra imports
 import {
   Flex,
-  Icon,
+  Spinner,
   Table,
   Tbody,
   Text,
@@ -15,7 +15,6 @@ import {
 
 import DashboardTableRow from "../DashboardTableRow/DashboardTableRow";
 import React from "react";
-import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
 
 const LargeListCard = ({ title, amount, captions, data }) => {
   const textColor = useColorModeValue("gray.700", "white");
@@ -46,8 +45,13 @@ const LargeListCard = ({ title, amount, captions, data }) => {
           </Tr>
         </Thead>
         <Tbody>
+          {data.length === 0 && (
+            <Tr>
+              <Spinner />
+            </Tr>
+          )}
           {data.map((row) => {
-            console.log(row)
+            console.log(row);
             return (
               <DashboardTableRow
                 key={row.commitHash}
